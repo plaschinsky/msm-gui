@@ -13,7 +13,8 @@
 <ul>
   <% @actors.each do |actor| %>
     <li>
-      <a href="/actors/<%= actor.id %>"><%= actor.name %></a>
+      <%= actor.name %> —
+      <a href="/actors/<%= actor.id %>">Show details</a>
     </li>
   <% end %>
 </ul>

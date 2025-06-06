@@ -1,6 +1,19 @@
 <h1><%= @actor.name %></h1>
 
+<p>
+  <strong>DOB:</strong> <%= @actor.dob %>
+</p>
+
 <img src="<%= @actor.image %>" width="200">
+
+<h2>Characters played by <%= @actor.name %>:</h2>
+<ul>
+  <% @actor.characters.each do |character| %>
+    <li>
+      <%= character.name %> in "<%= character.movie.title %>" (directed by <%= character.movie.director.name %>)
+    </li>
+  <% end %>
+</ul>
 
 <form action="/update_actor/<%= @actor.id %>" method="post">
   <label for="image_field">Image</label>
