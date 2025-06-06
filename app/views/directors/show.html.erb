@@ -1,0 +1,11 @@
+<h1><%= @director.name %></h1>
+
+<img src="<%= @director.image %>" width="200">
+
+<form action="/update_director/<%= @director.id %>" method="post">
+  <label for="image_field">Image</label>
+  <input id="image_field" name="query_image" value="<%= @director.image %>">
+  <button>Update director</button>
+</form>
+
+<a href="/delete_director/<%= @director.id %>">Delete director</a>

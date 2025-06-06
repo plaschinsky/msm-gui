@@ -1,12 +1,9 @@
 <h1><%= @actor.name %></h1>
 
-<p>
-  <strong>DOB:</strong> <%= @actor.dob %>
-</p>
-
+<p><strong>DOB:</strong> <%= @actor.dob %></p>
 <img src="<%= @actor.image %>" width="200">
 
-<h2>Characters played by <%= @actor.name %>:</h2>
+<h2>Characters played:</h2>
 <ul>
   <% @actor.characters.each do |character| %>
     <li>

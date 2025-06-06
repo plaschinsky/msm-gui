@@ -1,0 +1,11 @@
+<h1><%= @movie.title %></h1>
+
+<img src="<%= @movie.image %>" width="200">
+
+<form action="/update_movie/<%= @movie.id %>" method="post">
+  <label for="image_field">Image</label>
+  <input id="image_field" name="query_image" value="<%= @movie.image %>">
+  <button>Update movie</button>
+</form>
+
+<a href="/delete_movie/<%= @movie.id %>">Delete movie</a>

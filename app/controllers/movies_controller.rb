@@ -1,17 +1,30 @@
 class MoviesController < ApplicationController
   def index
-    matching_movies = Movie.all
-    @list_of_movies = matching_movies.order({ :created_at => :desc })
-
-    render({ :template => "movie_templates/index" })
+    @movies = Movie.all
   end
 
   def show
-    the_id = params.fetch("path_id")
+    @movie = Movie.find(params.fetch("id"))
+  end
 
-    matching_movies = Movie.where({ :id => the_id })
-    @the_movie = matching_movies.at(0)
+  def create
+    movie = Movie.new
+    movie.title = params.fetch("query_title")
+    movie.image = params.fetch("query_image")
+    movie.save
+    redirect_to("/movies")
+  end
 
-    render({ :template => "movie_templates/show" })
+  def update
+    movie = Movie.find(params.fetch("id"))
+    movie.image = params.fetch("query_image")
+    movie.save
+    redirect_to("/movies/#{movie.id}")
+  end
+
+  def destroy
+    movie = Movie.find(params.fetch("id"))
+    movie.destroy
+    redirect_to("/movies")
   end
 end

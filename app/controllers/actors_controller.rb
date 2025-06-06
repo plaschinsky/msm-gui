@@ -3,10 +3,9 @@ class ActorsController < ApplicationController
     @actors = Actor.all
   end
 
-def show
-  @actor = Actor.find(params.fetch("id"))
-  @characters = @actor.characters
-end
+  def show
+    @actor = Actor.find(params.fetch("id"))
+  end
 
   def create
     actor = Actor.new
