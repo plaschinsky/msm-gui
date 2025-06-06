@@ -1,0 +1,11 @@
+<h1><%= @actor.name %></h1>
+
+<img src="<%= @actor.image %>" width="200">
+
+<form action="/update_actor/<%= @actor.id %>" method="post">
+  <label for="image_field">Image</label>
+  <input id="image_field" name="query_image" value="<%= @actor.image %>">
+  <button>Update actor</button>
+</form>
+
+<a href="/delete_actor/<%= @actor.id %>">Delete actor</a>
